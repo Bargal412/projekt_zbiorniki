@@ -26,10 +26,10 @@ połączonymi rurami, zaworem, pompą oraz grzałką.
 
 ## Sterowanie
 
--Start/Stop
--Grzałka Z3
--Zawór
--Pompa
--Zbiorniki
+- Start/Stop
+- Grzałka Z3
+- Zawór
+- Pompa
+- Zbiorniki
 
 
