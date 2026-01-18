@@ -29,7 +29,6 @@ class SymulacjaKaskady(QWidget):
 
         self.zbiorniki = [self.z1, self.z2, self.z3, self.z4]
 
-        # --- Konfiguracja Rur ---
         # Rura 1: Z1 (Dół) -> Z2 (Góra)
         p_start = self.z1.punkt_dol_srodek()
         p_koniec = self.z2.punkt_gora_srodek()
@@ -310,4 +309,5 @@ class SymulacjaKaskady(QWidget):
             z.draw(p)
 
         self.pompa.draw(p)
+
         self.zawor_z1_z2.draw(p,250, 195)
