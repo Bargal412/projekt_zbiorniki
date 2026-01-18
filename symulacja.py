@@ -255,7 +255,7 @@ class SymulacjaKaskady(QWidget):
             else:
                 stan_rura3 = False
 
-        elif not self.z1.czy_pusty() and self.z2.czy_pelny() and not self.z4.czy_pelny() and self.pompa.wlaczona:
+        elif not self.z1.czy_pusty() and self.z2.czy_pelny() and not self.z4.czy_pelny() and self.pompa.wlaczona and not z1_zablokowany:
             ilosc = self.z1.usun_ciecz(flow_speed * 0.5)
             self.z4.dodaj_ciecz(ilosc)
             stan_rura3 = True
@@ -310,3 +310,4 @@ class SymulacjaKaskady(QWidget):
 
         self.pompa.draw(p)
         self.zawor_z1_z2.draw(p,250, 195)
+
