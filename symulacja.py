@@ -309,5 +309,4 @@ class SymulacjaKaskady(QWidget):
             z.draw(p)
 
         self.pompa.draw(p)
-
         self.zawor_z1_z2.draw(p,250, 195)
