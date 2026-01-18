@@ -41,20 +41,6 @@ class Zbiornik:
         msg.setStandardButtons(QMessageBox.Ok)
         msg.exec_()
 
-    def draw(self, painter):
-        # 1. Kolor cieczy zależny od temperatury
-        if self.poziom > 0:
-            h_cieczy = self.height * self.poziom
-            y_start = self.y + self.height - h_cieczy
-
-            # od niebieskiego (20°C) do czerwonego (100°C)
-            ratio = min(1.0, (self.temperatura - 20) / 60)
-            r = int(0 + (255 * ratio))
-            b = int(255 - (200 * ratio))
-            painter.setBrush(QColor(r, 100, b, 200))
-            painter.setPen(Qt.NoPen)
-            painter.drawRect(int(self.x + 3), int(y_start), int(self.width - 6), int(h_cieczy))
-
     def dodaj_ciecz(self, ilosc):
         wolne = self.pojemnosc - self.aktualna_ilosc
         dodano = min(ilosc, wolne)
@@ -113,5 +99,6 @@ class Zbiornik:
             self.grzalka.draw(painter, self.x, self.y)
             painter.setPen(Qt.white)
             painter.drawText(int(self.x), int(self.y + self.height + 20), f"{self.temperatura:.1f}°C")
+
 
 
