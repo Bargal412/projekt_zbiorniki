@@ -24,13 +24,12 @@ class Zbiornik:
                 # Aktualizacja temperatury
                 self.temperatura = self.grzalka.aktualizuj_temp(self.temperatura, self.aktualna_ilosc)
 
-                # Sprawdzanie czy osiągnięto 80 stopni
+                # Sprawdzanie czy osiągnięto 100 stopni
                 if self.temperatura >= 100.0 and not self.komunikat_wyslany:
                     self.pokaz_alarm_temperatury()
-                    self.komunikat_wyslany = True  # Oznaczamy, że już raz pokazaliśmy komunikat
+                    self.komunikat_wyslany = True  
 
-                # Resetowanie flagi, jeśli woda ostygnie (np. poniżej 75 stopni)
-                # Dzięki temu komunikat pojawi się ponownie przy kolejnym nagrzaniu
+                # Resetowanie flagi
                 if self.temperatura < 85.0:
                     self.komunikat_wyslany = False
 
@@ -96,7 +95,7 @@ class Zbiornik:
 
             painter.setPen(Qt.NoPen)
             painter.setBrush(QColor(0, 120, 255, 200))
-            # Korekta wymiarów, aby ciecz mieściła się w obrysie (+3, -6)
+            # Korekta wymiarów, aby ciecz mieściła się w obrysie
             painter.drawRect(int(self.x + 3), int(y_start), int(self.width - 6), int(h_cieczy))
 
         # 2. Rysowanie obrysu
@@ -114,4 +113,5 @@ class Zbiornik:
             self.grzalka.draw(painter, self.x, self.y)
             painter.setPen(Qt.white)
             painter.drawText(int(self.x), int(self.y + self.height + 20), f"{self.temperatura:.1f}°C")
+
 
